@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap 4 Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              box-sizing: border-box;
+            }
+            
+            /* Set a style for all buttons */
+            button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                cursor: pointer;
+                width: 100%;
+
+                border: 1px solid #fff;
+                border-radius: 100px;
+                outline: none;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.4;
+                text-align: center;
+            }
+            
+            button:hover {
+              opacity: 0.8;
+            }
+            
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+                width: auto;
+                padding: 10px 18px;
+                background-color: #f44336;
+
+                border: 1px solid #fff;
+                border-radius: 100px;
+                margin: 0 5px;
+                outline: none;
+                color: #fff;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.4;
+                text-align: center;
+            }
+            
+            /* Center the image and position the close button */
+            .imgcontainer {
+              text-align: center;
+              margin: 24px 0 12px 0;
+              position: relative;
+            }
+            
+            img.avatar {
+              width: 40%;
+              border-radius: 50%;
+            }
+            
+            .container {
+              padding: 16px;
+            }
+            
+            span.psw {
+              float: right;
+              padding-top: 16px;
+            }
+            
+            /* The Modal (background) */
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+              padding-top: 60px;
+            }
+            
+            /* Modal Content/Box */
+            .modal-content {
+              background-color: #fefefe;
+              margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+              border: 1px solid #888;
+              width: 25%; /* Could be more or less, depending on screen size */
+            }
+            
+            /* The Close Button (x) */
+            .close {
+              position: absolute;
+              right: 25px;
+              top: 0;
+              color: #000;
+              font-size: 35px;
+              font-weight: bold;
+            }
+            
+            .close:hover,
+            .close:focus {
+              color: red;
+              cursor: pointer;
+            }
+            
+            /* Add Zoom Animation */
+            .animate {
+              -webkit-animation: animatezoom 1s;
+              animation: animatezoom 1s
+            }
+            
+            @-webkit-keyframes animatezoom {
+              from {-webkit-transform: scale(0)} 
+              to {-webkit-transform: scale(1)}
+            }
+              
+            @keyframes animatezoom {
+              from {transform: scale(0)} 
+              to {transform: scale(1)}
+            }
+            
+            /* Change styles for span and cancel button on extra small screens */
+            @media screen and (max-width: 300px) {
+              span.psw {
+                 display: block;
+                 float: none;
+              }
+              .cancelbtn {
+                 width: 100%;
+              }
+            }
+            </style>
+    </head>
+
+
+
+    <body>
+
+        <div class="header" id="topheader">
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <div class="container p-2">
+                    <a class="navbar-brand font-weight-bold text-white" href="#">Ticket Services Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+              
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Service</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Price</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li> -->
+                            <!-- <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Disabled</a>
+                            </li> -->
+                        </ul>
+                        <div class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" id="fname" type="search" placeholder="Type Your Name" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" id="sayHello" type="submit">Say Hi!</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="header-section">
+                <div class="center-div">
+                    <h1 class="font-weight-bold"> We are the Web Developers </h1>
+                    <p id="para"> We create the world's best websites!</p>
+                    <div class="header-buttons">
+                        <a href="#"> About Us </a>
+                        <a href="#"> Contact </a>
+                        <button class="btn btn-outline-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Log in</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Header Parts End -->
+
+        <!-- Three Extra Header div Starts -->
+
+        <section class="header-extradiv">
+            <div class="container">
+                <div class="row">
+                    <div class="extra-div col-lg-4 col-md-4 col-12">
+                        <a href="#">
+                            <i class="fa-3x fa fa-desktop" aria-hidden="true"></i>
+                            <h2>Easy To Use</h2>
+                            <p>Get started with Bootstrap, the world’s most popular framework for building responsive, mobile-first sites, with BootstrapCDN and a template starter page.
+                                That is also just a sample paragraph.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="extra-div col-lg-4 col-md-4 col-12">
+                        <a href="#">
+                            <i class="fa-3x fa fa-trophy" aria-hidden="true"></i>
+                            <h2>Awesome Desgin</h2>
+                            <p>Many of our components require the use of JavaScript to function. Specifically, they require jQuery, Popper.js, and our own JavaScript plugins. Place the following s near the end of your pages, right before the closing  tag, to enable them. jQuery must come first, then Popper.js, and then our JavaScript plugins.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="extra-div col-lg-4 col-md-4 col-12">
+                        <a href="#">
+                            <i class="fa-3x fa fa-magic" aria-hidden="true"></i>
+                            <h2>Easy To Customize</h2>
+                            <p>Curious which components explicitly require jQuery, our JS, and Popper.js? Click the show components link below. If you’re at all unsure about the general page structure, keep reading for an example page template.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Three Extra Header div Ends -->
+    
+
+        <div id="pieChartContainer" style="height: 250px; width: 100%;"></div>
+        <div id="lineChartContainer" style="height: 250px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        
+        <script src="scripts/script.js"> </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js"></script>
+        
+
+        <div class="chart-container" >
+            <div class="line">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="row">
+                <div class="doughnut col-lg-4 col-md-5 col-12">
+                    <canvas id="myDoughnutChart"></canvas>
+                </div>
+                <div class="pie col-lg-4 col-md-5 col-12">
+                    <canvas id="myPieChart"></canvas>
+                </div>
+                <div class="polarAreaChart col-lg-4 col-md-5 col-12">
+                    <canvas id="myPolarAreaChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [10, 11, 19, 40, 16, 10, 23, 2, 33, 2, 9, 4, 2, 19, 18, 12, 29, 2, 2, 3, 3, 4 ,7 ,4],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
+
+        
+        <script>
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            
+            var ctx = document.getElementById('myDoughnutChart').getContext('2d');
+            //api call
+            var dps = [10, 20, 30, 25, 15, 5, 21, 32];
+            var lbl = [
+                    'Red',
+                    'Yellow',
+                    'Blue',
+                    'White',
+                    'Orange',
+                    'Amisha-pinky',
+                    'Pinku',
+                    'Pink'
+                ];
+
+            var bgClr = [];
+            var n = dps.length;
+            for(var i=0; i<n; ++i) {
+                bgClr.push(getRandomColor());
+            }
+
+            var dt = {
+                datasets: [{
+                    data: dps,
+                    backgroundColor: bgClr
+                }],
+
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: lbl
+            };
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: dt           
+            });
+
+            
+        </script>
+
+        <script>
+            var ctx = document.getElementById('myPieChart').getContext('2d');
+
+            var dt = {
+                datasets: [{
+                    data: [10, 20, 30],
+                    backgroundColor: [
+                        'rgba(255, 0, 0, 1)',
+                        'rgba(0, 255, 0, 1)',
+                        'rgba(0, 0, 255, 1)'
+                    ]
+                }],
+
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: [
+                    'Red',
+                    'Yellow',
+                    'Blue'
+                ]
+            };
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: dt  
+            });
+        </script>
+
+        <script>
+            var ctx = document.getElementById('myPolarAreaChart').getContext('2d');
+
+            var dt = {
+                datasets: [{
+                    data: [20, 10, 4],
+                    backgroundColor: [
+                        'rgba(255, 0, 0, 1)',
+                        'rgba(0, 255, 0, 1)',
+                        'rgba(0, 0, 255, 1)'
+                    ]
+                }],
+
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: [
+                    'Red',
+                    'Yellow',
+                    'Blue'
+                ]
+            };
+            var myPieChart = new Chart(ctx, {
+                type: 'polarArea',
+                data: dt
+            });
+        </script>
+
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+        
+        
+        </script>
+        
+
+
+        <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
+
+        <div id="id01" class="modal">
+        
+            <div class="modal-content animate">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <img src="images/img_avatar_1.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="container">
+                    <!-- <label for="uname"><b>Username</b></label> -->
+                    <input id="unameInput" type="text" placeholder="Username or E -mail" name="uname" required>
+
+                    <!-- <label for="psw"><b>Password</b></label> -->
+                    <input id="pswInput" type="password" placeholder="Password" name="psw" required>
+                        
+                    <button id="loginBtn" type="submit">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <span class="psw"> <a href="#">Forgot password?</a></span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            document.getElementById('loginBtn').addEventListener('click', loginUser);
+
+            function loginUser() {
+                alert('Trying to login...');
+                var uname = document.getElementById('unameInput').value;
+                var psw = document.getElementById('pswInput').value;
+
+                if(!uname || uname.length == 0 || !psw || psw.length == 0) {
+                    alert('Please Type Your Credentials!');
+                    return;
+                }
+
+                sessionStorage.setItem('currUser', uname);
+
+                alert('Successfully Logged In!');
+            }
+
+        </script>
+
+    </body>
+
+</html>
